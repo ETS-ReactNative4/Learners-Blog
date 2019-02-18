@@ -29,8 +29,9 @@ class Blog extends Component {
                 </header>
                 <Switch>
                     {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null }                    <Route path="/posts/" component={Posts} />
-                    <Route to="/posts" component={Posts} />
-                    <Route render={() => <h1>Page Not Found!</h1>} />
+                    <Route path="/posts" component={Posts} />
+                    <Redirect from="/" exact to="/posts"/>
+                    <Route render={() => <h1 style={{textAlign: 'center'}}>Page Not Found!</h1>} />
                 </Switch>
             </div>
         );
